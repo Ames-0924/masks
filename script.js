@@ -11,6 +11,7 @@ function loadpage() {
       localStorage.setItem("Masks", JSON.stringify(result.results))
     );
   localStorage.setItem("Sort", "");
+  sortDate()
 }
 
 function sortDate() {
@@ -44,6 +45,7 @@ function makeTable(a){
     let boxes = document.createElement('td')
     let pbb = document.createElement('td')
     let ip = document.createElement('td')
+    brand.setAttribute('onclick', 'details('+i+')')
     brand.innerHTML = e[i].Brand
     exp.innerHTML = e[i].EXP_Date
     astm.innerHTML = e[i].ASTM
@@ -59,5 +61,19 @@ function makeTable(a){
     newrow.appendChild(pbb)
     newrow.appendChild(ip)
     table.appendChild(newrow)
+  }
+}
+function details(num){
+  document.getElementById('br').innerHTML = 
+}
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
