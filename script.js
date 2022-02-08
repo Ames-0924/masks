@@ -7,13 +7,11 @@ function loadpage() {
     },
   })
     .then((r) => r.json())
-    .then((result) =>hello(result.results)
-    );
-
+    .then((result) => hello(result.results));
 }
-function hello(e){
-        localStorage.setItem("Masks", JSON.stringify(e));
-    localStorage.setItem("Sort", "");
+function hello(e) {
+  localStorage.setItem("Masks", JSON.stringify(e));
+  localStorage.setItem("Sort", "");
   sortDate();
 }
 function sortDate() {
@@ -79,7 +77,7 @@ function details(num) {
   document.getElementById("pi").innerHTML = e[Number(num)].PiecePBox;
   document.getElementById("inv").innerHTML = e[Number(num)].IndivP;
   document.getElementById("bo").innerHTML = e[Number(num)].Boxes;
-  document.getElementById('snum').innerHTML = num
+  document.getElementById("snum").innerHTML = num;
   modal.style.display = "block";
 }
 var modal = document.getElementById("myModal");
@@ -100,20 +98,60 @@ function plus(b) {
   } else {
     document.getElementById("bo").innerHTML =
       Number(document.getElementById("bo").innerHTML) + Number(b);
-    fetch("https://api.sheetson.com/v2/sheets/Masks/"+e[Number(document.getElementById('snum').innerHTML)].Original, {
-      method: "PUT",
-      headers: {
-        Authorization:
-          "Bearer Wga4ggDAp0JkrhjcppkjovcjtzsCOj-CSDROrRExAQkD193br8wE0bwEKts",
-        "X-Spreadsheet-Id": "1-ZB401_2pa2zhs5iFFee65_Hgv1VqKJMsyoZUiORtts",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ Boxes: document.getElementById("bo").innerHTML }),
-    })
+    fetch(
+      "https://api.sheetson.com/v2/sheets/Masks/" +
+        e[Number(document.getElementById("snum").innerHTML)].Original,
+      {
+        method: "PUT",
+        headers: {
+          Authorization:
+            "Bearer Wga4ggDAp0JkrhjcppkjovcjtzsCOj-CSDROrRExAQkD193br8wE0bwEKts",
+          "X-Spreadsheet-Id": "1-ZB401_2pa2zhs5iFFee65_Hgv1VqKJMsyoZUiORtts",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Boxes: document.getElementById("bo").innerHTML,
+        }),
+      }
+    )
       .then((r) => r.json())
       .then((result) => console.log(result));
-    document.querySelectorAll('.smallbtn').forEach(element => element.disabled = true)
-    setTimeout(function(){document.querySelectorAll('.smallbtn').forEach(element => element.disabled = false)},4500)
+    document
+      .querySelectorAll(".smallbtn")
+      .forEach((element) => (element.disabled = true));
+    setTimeout(function () {
+      document
+        .querySelectorAll(".smallbtn")
+        .forEach((element) => (element.disabled = false));
+    }, 4500);
   }
 }
-function newdata(brand, )
+function newdata(brand, exp, astm, color, boxes, ppb, ip) {
+  let e = JSON.parse(localStorage.getItem("Masks"));
+  e.sort(function (a, b) {
+    return Number(b.Original) - Number(a.Original);
+  });
+  //console.log(e[0].Original)
+  fetch("https://api.sheetson.com/v2/sheets/Masks", {
+    method: "POST",
+    headers: {
+      Authorization:
+        "Bearer Wga4ggDAp0JkrhjcppkjovcjtzsCOj-CSDROrRExAQkD193br8wE0bwEKts",
+      "X-Spreadsheet-Id": "1-ZB401_2pa2zhs5iFFee65_Hgv1VqKJMsyoZUiORtts",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      Brand: brand,
+      EXP_Date: exp,
+      ASTM: astm,
+      Color: color,
+      Boxes: boxes,
+      PiecePBox: ppb,
+      IndivP: ip,
+      "A/C": "a",
+      Original: Number(Number(e[0].Original) + Number(1)),
+    }),
+  })
+    .then((r) => r.json())
+    .then((result) => console.log(result));
+}
