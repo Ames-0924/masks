@@ -116,3 +116,4 @@ function plus(b) {
     setTimeout(function(){document.querySelectorAll('.smallbtn').forEach(element => element.disabled = false)},4500)
   }
 }
+function newdata(brand, )
