@@ -27,6 +27,7 @@ function sortDate() {
   }
 }
 function makeTable(a){
+  localStorage.setItem("Masks", JSON.stringify(a))
   let e = a;
   var table = document.getElementById('mt')
   for (
@@ -47,7 +48,11 @@ function makeTable(a){
     let ip = document.createElement('td')
     brand.setAttribute('onclick', 'details('+i+')')
     brand.innerHTML = e[i].Brand
-    exp.innerHTML = e[i].EXP_Date
+    if(e[i].EXP_Date == '1/1/2040'){
+      exp.innerHTML = '?'
+    } else {
+      exp.innerHTML = e[i].EXP_Date
+    }
     astm.innerHTML = e[i].ASTM
     color.innerHTML = e[i].Color
     boxes.innerHTML = e[i].Boxes
@@ -64,7 +69,14 @@ function makeTable(a){
   }
 }
 function details(num){
-  document.getElementById('br').innerHTML = 
+  let e = JSON.parse(localStorage.getItem("Masks"));
+  document.getElementById('br').innerHTML = e[Number(num)].Brand
+  document.getElementById('ex').innerHTML = e[Number(num)].EXP_Date
+  document.getElementById('as').innerHTML = e[Number(num)].ASTM
+  document.getElementById('co').innerHTML = e[Number(num)].Color
+  document.getElementById('pi').innerHTML = e[Number(num)].PiecePBox
+  document.getElementById('inv').innerHTML = e[Number(num)].IndivP
+  modal.style.display = "block";
 }
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
