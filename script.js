@@ -174,3 +174,43 @@ function newDD(w){
   alert(text)
   setTimeout(function(){location.reload()}, 5000)
 }
+function newnewrow(){
+  let a = prompt('Brand: ')
+  if (a == null || a == '' ){
+    alert('Failed')
+    return
+  }
+  let b = prompt('Expiry Date: \nEnter in the format mm-dd-yyyy')
+    if (new Date(b) == 'Invalid Date' || b == null || b == '' ){
+    alert('Failed')
+    return
+  }
+  let c = prompt('ASTM: ')
+    if (a == null || a == '' ){
+    alert('Failed')
+    return
+  }
+  let d = prompt('Color: ')
+    if (a == null || a == '' ){
+    alert('Failed')
+    return
+  }
+  let e = prompt('Boxes: ')
+    if (a == null || a == '' ){
+    alert('Failed')
+    return
+  }
+  let f = prompt('Piece per box: ')
+    if (f == null || a == '' ){
+    alert('Failed')
+    return
+  }
+  let g = prompt('Individual? (Enter y/n): ')
+    if (g == null || g == '' ||(g!=='y'&&g!=='n')){
+    alert('Failed')
+    return
+  }
+  
+    newdata(a,b,c,d,e,f,g)
+  
+}
