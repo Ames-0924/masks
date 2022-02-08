@@ -10,6 +10,11 @@ function loadpage() {
     .then((result) => hello(result.results));
 }
 function hello(e) {
+  for (let i = 0; i< e.length; i++){
+    if(e[i].Boxes == 0){
+      e.splice(Number(i), 1)
+    }
+  }
   localStorage.setItem("Masks", JSON.stringify(e));
   localStorage.setItem("Sort", "");
   sortDate();
@@ -115,7 +120,7 @@ function plus(b) {
       }
     )
       .then((r) => r.json())
-      .then((result) => console.log(result));
+      .then((result) => location.reload());
     document
       .querySelectorAll(".smallbtn")
       .forEach((element) => (element.disabled = true));
@@ -153,5 +158,19 @@ function newdata(brand, exp, astm, color, boxes, ppb, ip) {
     }),
   })
     .then((r) => r.json())
-    .then((result) => console.log(result));
+    .then((result) => newDD(result));
+}
+function newDD(w){
+  let text = ''
+  text+= 'Added the following data: ' +'\n'
+  text+='Brand: '+w.Brand+'\n'
+  text+='Expiry Date: '+w.EXP_Date+'\n'
+  text+='ASTM: '+w.ASTM+'\n'
+  text+='Color: '+w.Color+'\n'
+  text+='Boxes: '+w.Boxes+'\n'
+  text+='Piece / Box: '+w.PiecePBox+'\n'
+  text+='Individual?: '+w.IndivP+'\n'
+  text+='Page will reload itself.'
+  alert(text)
+  setTimeout(function(){location.reload()}, 5000)
 }
