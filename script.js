@@ -26,12 +26,38 @@ function sortDate() {
   }
 }
 function makeTable(a){
+  let e = a;
   var table = document.getElementById('mt')
   for (
       let j = table.rows.length - 1, row;
       (row = table.rows[j]) && j > 0;
       j--
     ) {
-  table.removeChild(table.rows[j])
+  table.rows[j].remove()
 }
+  for (let i = 0; i< e.length; i++){
+    let newrow = document.createElement('tr')
+    let brand = document.createElement('td')
+    let exp = document.createElement('td')
+    let astm = document.createElement('td')
+    let color = document.createElement('td')
+    let boxes = document.createElement('td')
+    let pbb = document.createElement('td')
+    let ip = document.createElement('td')
+    brand.innerHTML = e[i].Brand
+    exp.innerHTML = e[i].EXP_Date
+    astm.innerHTML = e[i].ASTM
+    color.innerHTML = e[i].Color
+    boxes.innerHTML = e[i].Boxes
+    pbb.innerHTML = e[i].PiecePBox
+    ip.innerHTML = e[i].IndivP
+    newrow.appendChild(brand)
+    newrow.appendChild(exp)
+    newrow.appendChild(astm)
+    newrow.appendChild(color)
+    newrow.appendChild(boxes)
+    newrow.appendChild(pbb)
+    newrow.appendChild(ip)
+    table.appendChild(newrow)
+  }
 }
