@@ -7,13 +7,15 @@ function loadpage() {
     },
   })
     .then((r) => r.json())
-    .then((result) =>
-      localStorage.setItem("Masks", JSON.stringify(result.results))
+    .then((result) =>hello(result.results)
     );
-  localStorage.setItem("Sort", "");
+
+}
+function hello(e){
+        localStorage.setItem("Masks", JSON.stringify(e));
+    localStorage.setItem("Sort", "");
   sortDate();
 }
-
 function sortDate() {
   let e = JSON.parse(localStorage.getItem("Masks"));
   if (localStorage.getItem("Sort") !== "A_D") {
@@ -110,6 +112,7 @@ function plus(b) {
     })
       .then((r) => r.json())
       .then((result) => console.log(result));
-    sek
+    document.querySelectorAll('.smallbtn').forEach(element => element.disabled = true)
+    setTimeout(function(){document.querySelectorAll('.smallbtn').forEach(element => element.disabled = false)},4500)
   }
 }
