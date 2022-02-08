@@ -15,6 +15,7 @@ function hello(e) {
       e.splice(Number(i), 1)
     }
   }
+  document.getElementById('newnew').disabled = false
   localStorage.setItem("Masks", JSON.stringify(e));
   localStorage.setItem("Sort", "");
   sortDate();
@@ -185,23 +186,23 @@ function newnewrow(){
     alert('Failed')
     return
   }
-  let c = prompt('ASTM: ')
-    if (a == null || a == '' ){
+  let c = prompt('ASTM: ', '3')
+    if (c == null || c == '' ){
     alert('Failed')
     return
   }
   let d = prompt('Color: ')
-    if (a == null || a == '' ){
+    if (d == null || d == '' ){
     alert('Failed')
     return
   }
-  let e = prompt('Boxes: ')
-    if (a == null || a == '' ){
+  let e = prompt('Boxes: ', '1')
+    if (e == null || e == '' ){
     alert('Failed')
     return
   }
   let f = prompt('Piece per box: ')
-    if (f == null || a == '' ){
+    if (f == null || f == '' ){
     alert('Failed')
     return
   }
@@ -210,7 +211,5 @@ function newnewrow(){
     alert('Failed')
     return
   }
-  
     newdata(a,b,c,d,e,f,g)
-  
 }
