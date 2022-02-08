@@ -6,46 +6,81 @@
     <link rel="icon" href="https://glitch.com/favicon.ico" />
 
     <title>Hello world!</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
 
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
   </head>
-  <body onload = "loadpage()">
+  <body onload="loadpage()">
     <table id="mt">
-      <tr><td onclick="">Brand</td><td onclick="sortDate()">EXP</td><td>ASTM</td><td>顏色</td><td>盒數</td><td>件/盒</td><td>獨立包裝</td></tr>
-      <tr><td>Taiwan Champ</td><td>8/15/2022</td><td>1</td><td>White</td><td>1</td><td>30</td><td>yes</td></tr>
+      <tr>
+        <td onclick="">Brand</td>
+        <td onclick="sortDate()">EXP</td>
+        <td>ASTM</td>
+        <td>顏色</td>
+        <td>盒數</td>
+        <td>件/盒</td>
+        <td>獨立包裝</td>
+      </tr>
+      <tr>
+        <td>Taiwan Champ</td>
+        <td>8/15/2022</td>
+        <td>1</td>
+        <td>White</td>
+        <td>1</td>
+        <td>30</td>
+        <td>yes</td>
+      </tr>
     </table>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <table>
-      <tr><td>Brand</td><td id="br"></td></tr>
-      <tr><td>EXP_Date</td><td id="ex"></td></tr>
-      <tr><td>ASTM</td><td id="as"></td></tr>
-      <tr><td>Color</td><td id="co"></td></tr>
-      <tr><td>Piece/Box</td><td id="pi"></td></tr>
-      <tr><td>Individual?</td><td id="inv"></td></tr>
-      <td>Boxes</td>
-      <td id="bo"></td>
-  <td>
-    <button onclick="minus()" class="smallbtn">
-        -
-      </button>
-            <button onclick="plus()" class="smallbtn">
-        +
-      </button>
-    </td>
-    </table>
-  </div>
-
-</div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <table>
+          <tr>
+            <td>Brand</td>
+            <td id="br"></td>
+          </tr>
+          <tr>
+            <td>EXP_Date</td>
+            <td id="ex"></td>
+          </tr>
+          <tr>
+            <td>ASTM</td>
+            <td id="as"></td>
+          </tr>
+          <tr>
+            <td>Color</td>
+            <td id="co"></td>
+          </tr>
+          <tr>
+            <td>Piece/Box</td>
+            <td id="pi"></td>
+          </tr>
+          <tr>
+            <td>Individual?</td>
+            <td id="inv"></td>
+          </tr>
+          <tr>
+            <td>Boxes</td>
+            <td id="bo"></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button onclick="plus(-1)" class="smallbtn">Minus</button>
+              <button onclick="plus(1)" class="smallbtn">Add</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </body>
 </html>

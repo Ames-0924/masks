@@ -76,6 +76,7 @@ function details(num){
   document.getElementById('co').innerHTML = e[Number(num)].Color
   document.getElementById('pi').innerHTML = e[Number(num)].PiecePBox
   document.getElementById('inv').innerHTML = e[Number(num)].IndivP
+  document.getElementById('bo').innerHTML = e[Number(num)].Boxes
   modal.style.display = "block";
 }
 var modal = document.getElementById("myModal");
@@ -87,5 +88,12 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+}
+function plus(b){
+  if (b<0 && document.getElementById('bo').innerHTML ==0){
+    alert('Cannot Minus')
+  }else{
+    document.getElementById('bo').innerHTML = Number(document.getElementById('bo').innerHTML)+Number(b)
   }
 }
