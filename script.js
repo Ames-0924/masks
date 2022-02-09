@@ -43,7 +43,8 @@ function makeTable(a) {
   ) {
     table.rows[j].remove();
   }
-  for (let i = 0; i < e.length; i++) {
+  let numbum = 0
+  for (let i = 0; i < e.length+1; i++) {
     let newrow = document.createElement("tr");
     let brand = document.createElement("td");
     let exp = document.createElement("td");
@@ -52,6 +53,14 @@ function makeTable(a) {
     let boxes = document.createElement("td");
     let pbb = document.createElement("td");
     let ip = document.createElement("td");
+    if (i == e.length){
+        brand.innerHTML = 'Total: '
+        exp.setAttribute('colspan', '6')
+        exp.innerHTML = 'Total Pieces: '+numbum
+        newrow.appendChild(brand)
+        newrow.appendChild(exp)
+      table.appendChild(newrow)
+    }else{    
     brand.setAttribute("onclick", "details(" + i + ")");
     brand.innerHTML = e[i].Brand;
     if (e[i].EXP_Date == "1/1/2040") {
@@ -72,7 +81,10 @@ function makeTable(a) {
     newrow.appendChild(pbb);
     newrow.appendChild(ip);
     table.appendChild(newrow);
+    numbum = Number(numbum)+Number(Number(e[i].Boxes)*e[i].PiecePBox)
+    }
   }
+  console.log(numbum)
 }
 function details(num) {
   let e = JSON.parse(localStorage.getItem("Masks"));
