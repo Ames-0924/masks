@@ -10,12 +10,12 @@ function loadpage() {
     .then((result) => hello(result.results));
 }
 function hello(e) {
-  for (let i = 0; i< e.length; i++){
-    if(e[i].Boxes == 0){
-      e.splice(Number(i), 1)
+  for (let i = 0; i < e.length; i++) {
+    if (e[i].Boxes == 0) {
+      e.splice(Number(i), 1);
     }
   }
-  document.getElementById('newnew').disabled = false
+  document.getElementById("newnew").disabled = false;
   localStorage.setItem("Masks", JSON.stringify(e));
   localStorage.setItem("Sort", "");
   sortDate();
@@ -43,8 +43,8 @@ function makeTable(a) {
   ) {
     table.rows[j].remove();
   }
-  let numbum = 0
-  for (let i = 0; i < e.length+1; i++) {
+  let numbum = 0;
+  for (let i = 0; i < e.length + 1; i++) {
     let newrow = document.createElement("tr");
     let brand = document.createElement("td");
     let exp = document.createElement("td");
@@ -53,38 +53,38 @@ function makeTable(a) {
     let boxes = document.createElement("td");
     let pbb = document.createElement("td");
     let ip = document.createElement("td");
-    if (i == e.length){
-        brand.innerHTML = 'Total: '
-        exp.setAttribute('colspan', '6')
-        exp.innerHTML = 'Total Pieces: '+numbum
-        newrow.appendChild(brand)
-        newrow.appendChild(exp)
-      table.appendChild(newrow)
-    }else{    
-    brand.setAttribute("onclick", "details(" + i + ")");
-    brand.innerHTML = e[i].Brand;
-    if (e[i].EXP_Date == "1/1/2040") {
-      exp.innerHTML = "?";
+    if (i == e.length) {
+      brand.innerHTML = "Total: ";
+      exp.setAttribute("colspan", "6");
+      exp.innerHTML = "Total Pieces: " + numbum;
+      newrow.appendChild(brand);
+      newrow.appendChild(exp);
+      table.appendChild(newrow);
     } else {
-      exp.innerHTML = e[i].EXP_Date;
-    }
-    astm.innerHTML = e[i].ASTM;
-    color.innerHTML = e[i].Color;
-    boxes.innerHTML = e[i].Boxes;
-    pbb.innerHTML = e[i].PiecePBox;
-    ip.innerHTML = e[i].IndivP;
-    newrow.appendChild(brand);
-    newrow.appendChild(exp);
-    newrow.appendChild(astm);
-    newrow.appendChild(color);
-    newrow.appendChild(boxes);
-    newrow.appendChild(pbb);
-    newrow.appendChild(ip);
-    table.appendChild(newrow);
-    numbum = Number(numbum)+Number(Number(e[i].Boxes)*e[i].PiecePBox)
+      brand.setAttribute("onclick", "details(" + i + ")");
+      brand.innerHTML = e[i].Brand;
+      if (e[i].EXP_Date == "1/1/2040") {
+        exp.innerHTML = "?";
+      } else {
+        exp.innerHTML = e[i].EXP_Date;
+      }
+      astm.innerHTML = e[i].ASTM;
+      color.innerHTML = e[i].Color;
+      boxes.innerHTML = e[i].Boxes;
+      pbb.innerHTML = e[i].PiecePBox;
+      ip.innerHTML = e[i].IndivP;
+      newrow.appendChild(brand);
+      newrow.appendChild(exp);
+      newrow.appendChild(astm);
+      newrow.appendChild(color);
+      newrow.appendChild(boxes);
+      newrow.appendChild(pbb);
+      newrow.appendChild(ip);
+      table.appendChild(newrow);
+      numbum = Number(numbum) + Number(Number(e[i].Boxes) * e[i].PiecePBox);
     }
   }
-  console.log(numbum)
+  console.log(numbum);
 }
 function details(num) {
   let e = JSON.parse(localStorage.getItem("Masks"));
@@ -173,55 +173,57 @@ function newdata(brand, exp, astm, color, boxes, ppb, ip) {
     .then((r) => r.json())
     .then((result) => newDD(result));
 }
-function newDD(w){
-  let text = ''
-  text+= 'Added the following data: ' +'\n'
-  text+='Brand: '+w.Brand+'\n'
-  text+='Expiry Date: '+w.EXP_Date+'\n'
-  text+='ASTM: '+w.ASTM+'\n'
-  text+='Color: '+w.Color+'\n'
-  text+='Boxes: '+w.Boxes+'\n'
-  text+='Piece / Box: '+w.PiecePBox+'\n'
-  text+='Individual?: '+w.IndivP+'\n'
-  text+='Page will reload itself.'
-  alert(text)
-  setTimeout(function(){location.reload()}, 5000)
+function newDD(w) {
+  let text = "";
+  text += "Added the following data: " + "\n";
+  text += "Brand: " + w.Brand + "\n";
+  text += "Expiry Date: " + w.EXP_Date + "\n";
+  text += "ASTM: " + w.ASTM + "\n";
+  text += "Color: " + w.Color + "\n";
+  text += "Boxes: " + w.Boxes + "\n";
+  text += "Piece / Box: " + w.PiecePBox + "\n";
+  text += "Individual?: " + w.IndivP + "\n";
+  text += "Page will reload itself.";
+  alert(text);
+  setTimeout(function () {
+    location.reload();
+  }, 5000);
 }
-function newnewrow(){
-  let a = prompt('Brand: ')
-  if (a == null || a == '' ){
-    alert('Failed')
-    return
+function newnewrow() {
+  let a = prompt("Brand: ");
+  if (a == null || a == "") {
+    alert("Failed");
+    return;
   }
-  let b = prompt('Expiry Date: \nEnter in the format mm-dd-yyyy')
-    if (new Date(b) == 'Invalid Date' || b == null || b == '' ){
-    alert('Failed')
-    return
+  let b = prompt("Expiry Date: \nEnter in the format mm-dd-yyyy");
+  if (new Date(b) == "Invalid Date" || b == null || b == "") {
+    alert("Failed");
+    return;
   }
-  let c = prompt('ASTM: ', '3')
-    if (c == null || c == '' ){
-    alert('Failed')
-    return
+  let c = prompt("ASTM: ", "3");
+  if (c == null || c == "") {
+    alert("Failed");
+    return;
   }
-  let d = prompt('Color: ')
-    if (d == null || d == '' ){
-    alert('Failed')
-    return
+  let d = prompt("Color: ");
+  if (d == null || d == "") {
+    alert("Failed");
+    return;
   }
-  let e = prompt('Boxes: ', '1')
-    if (e == null || e == '' ){
-    alert('Failed')
-    return
+  let e = prompt("Boxes: ", "1");
+  if (e == null || e == "") {
+    alert("Failed");
+    return;
   }
-  let f = prompt('Piece per box: ')
-    if (f == null || f == '' ){
-    alert('Failed')
-    return
+  let f = prompt("Piece per box: ");
+  if (f == null || f == "") {
+    alert("Failed");
+    return;
   }
-  let g = prompt('Individual? (Enter y/n): ')
-    if (g == null || g == '' ||(g!=='y'&&g!=='n')){
-    alert('Failed')
-    return
+  let g = prompt("Individual? (Enter y/n): ");
+  if (g == null || g == "" || (g !== "y" && g !== "n")) {
+    alert("Failed");
+    return;
   }
-    newdata(a,b,c,d,e,f,g)
+  newdata(a, b, c, d, e, f, g);
 }

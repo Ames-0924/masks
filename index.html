@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
-
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Hello world!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,9 +21,9 @@
   <body onload="loadpage()">
     <table id="mt">
       <tr>
-        <td onclick="">Brand</td>
-        <td onclick="sortDate()">EXP</td>
-        <td>ASTM</td>
+        <td onclick="">牌子</td>
+        <td onclick="sortDate()">過期日</td>
+        <td>級數</td>
         <td>顏色</td>
         <td>盒數</td>
         <td>件/盒</td>
@@ -40,10 +40,10 @@
       </tr>
     </table>
     <center>
-    <button onclick="newnewrow()" class="heee" disabled id="newnew">
-      New
-    </button>
-      </center>
+      <button onclick="newnewrow()" class="heee" disabled id="newnew">
+        New
+      </button>
+    </center>
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
@@ -84,7 +84,7 @@
               <button onclick="plus(1)" class="smallbtn">Add</button>
             </td>
           </tr>
-          <span id="snum" style="display:none;"></span>
+          <span id="snum" style="display: none"></span>
         </table>
       </div>
     </div>
