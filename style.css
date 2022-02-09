@@ -9,6 +9,7 @@ table {
 }
 td {
   padding: 3px;
+  height: 50px;
 }
 .modal {
   display: none; /* Hidden by default */
