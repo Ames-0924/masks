@@ -195,7 +195,7 @@ function newnewrow() {
     alert("Failed");
     return;
   }
-  let b = prompt("Expiry Date: \nEnter in the format mm-dd-yyyy");
+  let b = prompt("Expiry Date: \nEnter in the format mm/dd/yyyy");
   if (new Date(b) == "Invalid Date" || b == null || b == "") {
     alert("Failed");
     return;
@@ -220,7 +220,7 @@ function newnewrow() {
     alert("Failed");
     return;
   }
-  let g = prompt("Individual? (Enter y/n): ");
+  let g = prompt("Individual? (Enter y/n): ").toLowerCase();
   if (g == null || g == "" || (g !== "y" && g !== "n")) {
     alert("Failed");
     return;
