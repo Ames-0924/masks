@@ -1,16 +1,10 @@
 function loadpage() {
-let apiKey = '1be9a6884abd4c3ea143b59ca317c6b2';
-$.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function(data) {
-  if(data.country_code == 'HK' && localStorage.getItem('Country') == 'HK'){
-
-  } 
-  else if (location.href.includes){
+  console.log(process.env.auth)
+if (location.href.includes(atob(atob(atob(atob(atob(atob(atob(atob(atob(atob(atob('Vm0wd2QyUXlWa1pPVldSWVYwZG9XRll3Wkc5V2JGbDNXa2M1VjFac2JETlhhMXBQVmxVeFYyTkVRbFZXYlUweFZtcEJlRmRIVmtkWGJGcE9ZV3RGZUZkV1ZtRlRNbEpYVW01T2FWSnNXbGhaYTFaM1ZsWmFjVk5xVWxwV01ERTFWa2QwVjFVeVNrbFJhemxXWWxob00xcFdXbXRXTVhCSlkwZDRVMkpXU2twV2JHUjNXVlphU0ZOclpHcFNWR3hoV1d4b2IxUkdjRmRYYlhSWFRWWmFlVlV5TVRSVk1ERkZWbXBXVjFJemFHaFhWbVJIWXpGT2RWUnRjRk5XUjNob1ZtMXdUMkl5UmtkaVNFWlRZbGhTV0ZSV1dtRmxWbkJHVjJ4T1ZXSkdjREJhU0hCRFZqSkdjbUo2UWxkaGEzQklWVEJhWVdSV1NuTlRiR1JUVFRBd01RPT0='))))))))))))){
     
   }else {
     location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
   }
-  console.log(JSON.stringify(data, null, 2));
-});
   fetch(`https://api.sheetson.com/v2/sheets/Masks`, {
     headers: {
       Authorization:
