@@ -1,4 +1,16 @@
 function loadpage() {
+let apiKey = '1be9a6884abd4c3ea143b59ca317c6b2';
+$.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function(data) {
+  if(data.country_code == 'HK' && localStorage.getItem('Country') == 'HK'){
+
+  } 
+  else if (location.href.includes){
+    
+  }else {
+    location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+  }
+  console.log(JSON.stringify(data, null, 2));
+});
   fetch(`https://api.sheetson.com/v2/sheets/Masks`, {
     headers: {
       Authorization:
