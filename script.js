@@ -1,5 +1,4 @@
 function loadpage() {
-  console.log(process.env.auth)
 if (location.href.includes(atob(atob(atob(atob(atob(atob(atob(atob(atob(atob(atob('Vm0wd2QyUXlWa1pPVldSWVYwZG9XRll3Wkc5V2JGbDNXa2M1VjFac2JETlhhMXBQVmxVeFYyTkVRbFZXYlUweFZtcEJlRmRIVmtkWGJGcE9ZV3RGZUZkV1ZtRlRNbEpYVW01T2FWSnNXbGhaYTFaM1ZsWmFjVk5xVWxwV01ERTFWa2QwVjFVeVNrbFJhemxXWWxob00xcFdXbXRXTVhCSlkwZDRVMkpXU2twV2JHUjNXVlphU0ZOclpHcFNWR3hoV1d4b2IxUkdjRmRYYlhSWFRWWmFlVlV5TVRSVk1ERkZWbXBXVjFJemFHaFhWbVJIWXpGT2RWUnRjRk5XUjNob1ZtMXdUMkl5UmtkaVNFWlRZbGhTV0ZSV1dtRmxWbkJHVjJ4T1ZXSkdjREJhU0hCRFZqSkdjbUo2UWxkaGEzQklWVEJhWVdSV1NuTlRiR1JUVFRBd01RPT0='))))))))))))){
     
   }else {
