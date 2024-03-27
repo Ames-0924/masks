@@ -4,11 +4,12 @@ if (location.href.includes(atob(atob(atob(atob(atob(atob(atob(atob(atob(atob(ato
   }else {
     location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
   }
-  fetch(`https://api.sheetson.com/v2/sheets/Masks`, {
+fetch("https://api.sheetson.com/v2/sheets/Masks?t="+Math.random(), {
     headers: {
       Authorization:
         "Bearer Wga4ggDAp0JkrhjcppkjovcjtzsCOj-CSDROrRExAQkD193br8wE0bwEKts",
       "X-Spreadsheet-Id": "1-ZB401_2pa2zhs5iFFee65_Hgv1VqKJMsyoZUiORtts",
+        "Content-Type": "application/json",
     },
   })
     .then((r) => r.json())
